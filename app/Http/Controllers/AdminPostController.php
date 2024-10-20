@@ -9,7 +9,8 @@ class AdminPostController extends Controller
 {
     public function index()
     {
-        return view('admin.post');
+        $posts = PostModel::get();
+        return view('admin.post', compact('posts'));
     }
     public function create()
     {

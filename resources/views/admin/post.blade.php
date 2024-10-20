@@ -40,32 +40,35 @@
         </div>
     </div>
     <div class="container mt-5">
-        <div class="card py-3 px-5">
-            <div class="row align-items-center">
-                <div class="col-md-10">
-                    <a href="post.html">
-                        <h2>Man must explore, and this is exploration at its greatest</h2>
-                        <h4 class="post-subtitle">Problems look mighty small from 150 miles up</h4>
-                    </a>
-                    <p class="post-meta">
-                        Posted by
-                        <a href="#!">Start Bootstrap</a>
-                        on September 24, 2023
-                    </p>
-                </div>
-                <div class="d-grid gap-2 col-md-2 mx-auto">
-                    <button class="btn btn-outline-dark btn-block">
-                        Edit
-                    </button>
-                    <button class="btn btn-danger">
-                        Hapus
-                    </button>
+        @foreach ($posts as $post)
+            <div class="card py-3 px-5">
+                <div class="row align-items-center">
+                    <div class="col-md-10">
+                        <a href="post.html">
+                            <h2>{{ $post->title }} </h2>
+                            <h4 class="post-subtitle">{{ $post->subtitle }}</h4>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on September 24, 2023
+                        </p>
+                    </div>
+                    <div class="d-grid gap-2 col-md-2 mx-auto">
+                        <button class="btn btn-outline-dark btn-block">
+                            Edit
+                        </button>
+                        <button class="btn btn-danger">
+                            Hapus
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <!-- Divider-->
+            <hr class="my-4" />
+        @endforeach
     </div>
-    <!-- Divider-->
-    <hr class="my-4" />
     </div>
     < <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
