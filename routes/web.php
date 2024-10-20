@@ -12,5 +12,6 @@ Route::get('/hello', [HelloController::class, 'helloWithName']);
 Route::prefix('admin')->group(function() {
     Route::get('/post', [AdminPostController::class, 'index']);
     Route::get('/post/create', [AdminPostController::class, 'create']);
+    Route::post('/post', [AdminPostController::class, 'store']);
     Route::get('/post/edit', [AdminPostController::class, 'edit']);
 });

@@ -35,7 +35,7 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-end">
             <div>
-                <button class="btn btn-primary">Create new Post</button>
+                <a href="{{ url('/admin/post/create') }}" class="btn btn-primary">Create new Post</a>
             </div>
         </div>
     </div>
@@ -54,18 +54,18 @@
                     </p>
                 </div>
                 <div class="d-grid gap-2 col-md-2 mx-auto">
-                        <button class="btn btn-outline-dark btn-block">
-                            Edit
-                        </button>
-                        <button class="btn btn-danger">
-                            Hapus
-                        </button>
-                    </div>
+                    <button class="btn btn-outline-dark btn-block">
+                        Edit
+                    </button>
+                    <button class="btn btn-danger">
+                        Hapus
+                    </button>
                 </div>
             </div>
         </div>
-        <!-- Divider-->
-        <hr class="my-4" />
+    </div>
+    <!-- Divider-->
+    <hr class="my-4" />
     </div>
     < <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
