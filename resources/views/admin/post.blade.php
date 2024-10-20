@@ -55,13 +55,16 @@
                         </p>
                     </div>
                     <div class="d-grid gap-2 col-md-2 mx-auto">
-                        <a href="{{ url('/admin/post') }}/{{ $post->id }}/edit"
-                            class="btn btn-outline-dark btn-block">
+                        <a href="{{ url('/admin/post') }}/{{ $post->id }}/edit" class="btn btn-outline-dark btn-block">
                             Edit
                         </a>
-                        <button class="btn btn-danger">
-                            Hapus
-                        </button>
+                        <form class="w-100" method="POST" action="{{ url('/admin/post') }}/{{ $post->id }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger w-100">
+                                Hapus
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -70,11 +73,10 @@
             <hr class="my-4" />
         @endforeach
     </div>
-    </div>
-    < <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>

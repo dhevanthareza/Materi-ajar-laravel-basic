@@ -34,6 +34,11 @@ class AdminPostController extends Controller
         PostModel::where('id', $id)->update($data);
 
         return redirect('/admin/post');
+    }
+    public function delete(Request $request, $id)
+    {
+        PostModel::where('id', $id)->delete();
 
+        return redirect('/admin/post');
     }
 }
