@@ -23,8 +23,17 @@ class AdminPostController extends Controller
 
         return redirect('/admin/post');
     }
-    public function edit()
+    public function edit(Request $request, $id)
     {
-        return view('admin.post-edit');
+        $post = PostModel::where('id', $id)->first();
+        return view('admin.post-edit', compact('post'));
+    }
+    public function update(Request $request, $id)
+    {
+        $data = $request->only(['title', 'subtitle', 'content']);
+        PostModel::where('id', $id)->update($data);
+
+        return redirect('/admin/post');
+
     }
 }

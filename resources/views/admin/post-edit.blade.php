@@ -35,18 +35,21 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form>
+                <form action="{{ url('/admin/post') }}/{{ $post->id }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul</label>
-                        <input type="text" class="form-control" id="title" placeholder="Judul Post">
+                        <input name="title" type="text" class="form-control" id="title" placeholder="Judul Post" value="{{ $post->title }}">
                     </div>
                     <div class="mb-3">
                         <label for="subtitle" class="form-label">Sub Judul</label>
-                        <input type="text" class="form-control" id="subtitle" placeholder="Sub Judul Post">
+                        <input name="subtitle" type="text" class="form-control" id="subtitle" placeholder="Sub Judul Post" value="{{ $post->subtitle }}">
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Konten Post</label>
-                        <textarea class="form-control" id="content" rows="3"></textarea>
+                        <textarea name="content" class="form-control" id="content" rows="3">
+                            {{ $post->content }}
+                        </textarea>
                     </div>
                     <div class="d-flex justify-content-end">
                         <button class="btn btn-primary">

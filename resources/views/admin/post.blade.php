@@ -55,9 +55,10 @@
                         </p>
                     </div>
                     <div class="d-grid gap-2 col-md-2 mx-auto">
-                        <button class="btn btn-outline-dark btn-block">
+                        <a href="{{ url('/admin/post') }}/{{ $post->id }}/edit"
+                            class="btn btn-outline-dark btn-block">
                             Edit
-                        </button>
+                        </a>
                         <button class="btn btn-danger">
                             Hapus
                         </button>
