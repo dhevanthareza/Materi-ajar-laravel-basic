@@ -33,6 +33,9 @@
         </div>
     </nav>
     <div class="container mt-5">
+        <h1>Selamat Datang {{ Auth::user()->name }} </h1>
+    </div>
+    <div class="container mt-5">
         <div class="d-flex justify-content-end">
             <div>
                 <a href="{{ url('/admin/post/create') }}" class="btn btn-primary">Create new Post</a>
@@ -55,7 +58,8 @@
                         </p>
                     </div>
                     <div class="d-grid gap-2 col-md-2 mx-auto">
-                        <a href="{{ url('/admin/post') }}/{{ $post->id }}/edit" class="btn btn-outline-dark btn-block">
+                        <a href="{{ url('/admin/post') }}/{{ $post->id }}/edit"
+                            class="btn btn-outline-dark btn-block">
                             Edit
                         </a>
                         <form class="w-100" method="POST" action="{{ url('/admin/post') }}/{{ $post->id }}">

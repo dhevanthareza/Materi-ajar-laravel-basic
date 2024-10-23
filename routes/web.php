@@ -1,12 +1,16 @@
 <?php
 
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/hello', [HelloController::class, 'helloWithName']);
+
+Route::get('/register', [AuthController::class, 'registerPage']);
+Route::post('/register', [AuthController::class, 'register']);
 
 
 Route::prefix('admin')->group(function () {
