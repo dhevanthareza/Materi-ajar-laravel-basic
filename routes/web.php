@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\HomeController;
+use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -14,7 +15,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
 
-Route::prefix('admin')->group(function () {
+Route::middleware(Authenticate::class)->prefix('admin')->group(function () {
     Route::get('/post', [AdminPostController::class, 'index']);
     Route::get('/post/create', [AdminPostController::class, 'create']);
     Route::post('/post', [AdminPostController::class, 'store']);
