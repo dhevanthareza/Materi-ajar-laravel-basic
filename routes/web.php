@@ -11,6 +11,7 @@ Route::get('/hello', [HelloController::class, 'helloWithName']);
 
 Route::get('/register', [AuthController::class, 'registerPage']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout']);
 
 
 Route::prefix('admin')->group(function () {
