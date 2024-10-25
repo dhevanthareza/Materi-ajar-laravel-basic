@@ -24,6 +24,28 @@ class AuthController extends Controller
 
         return redirect('/admin/post');
     }
+    public function loginPage()
+    {
+        return view('login');
+    }
+    public function login(Request $request)
+    {
+        $data = $request->only(['email', 'password']);
+
+        $user = User::where('email', $data['email'])->first();
+
+        if (empty($user)) {
+            return redirect('/login')->with('error', 'User tidak ditemukan');
+        }
+
+        if (!Hash::check($data['password'], $user->password)) {
+            return redirect('/login')->with('error', 'Salah Password');
+        }
+
+        $user = Auth::login($user);
+
+        return redirect('/admin/post');
+    }
     public function logout(Request $request)
     {
         Auth::logout();

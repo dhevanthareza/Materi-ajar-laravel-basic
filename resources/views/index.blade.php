@@ -18,8 +18,16 @@
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-        <div class="container px-4 px-lg-5">
+        <div class="container px-4 px-lg-5 me-auto">
             <a class="navbar-brand" href="index.html">Clean Blog</a>
+        </div>
+        <div class="d-flex">
+            <a href="{{ url('/register') }}" class="btn btn-primary me-1">
+                Register
+            </a>
+            <a href="{{ url('/login') }}" class="btn btn-success me-1">
+                Login
+            </a>
         </div>
     </nav>
     <!-- Main Content-->
