@@ -35,7 +35,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form action="{{ url('/admin/post') }}/{{ $post->id }}" method="POST">
+                <form action="{{ url('/admin/post') }}/{{ $post->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul</label>
@@ -44,6 +44,15 @@
                     <div class="mb-3">
                         <label for="subtitle" class="form-label">Sub Judul</label>
                         <input name="subtitle" type="text" class="form-control" id="subtitle" placeholder="Sub Judul Post" value="{{ $post->subtitle }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="file">Upload File:</label>
+                        <div class="input-group">
+                            <input name="file" type="file" class="form-control" id="file">
+                            @if($post->file_path)
+                            <a href="{{ asset('storage/' . $post->file_path) }}" target="_blank" class="btn btn-outline-secondary" type="button" id="button-addon2">Lihat File Lama</a>
+                            @endif
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Konten Post</label>

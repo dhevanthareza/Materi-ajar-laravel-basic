@@ -19,6 +19,12 @@ class AdminPostController extends Controller
     public function store(Request $request)
     {
         $data = $request->only(['title', 'subtitle', 'content']);
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filePath = $file->store('uploads', 'public');
+            $data['file_path'] = $filePath;
+        }
+
         PostModel::create($data);
 
         return redirect('/admin/post');
@@ -31,6 +37,13 @@ class AdminPostController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->only(['title', 'subtitle', 'content']);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filePath = $file->store('uploads', 'public');
+            $data['file_path'] = $filePath;
+        }
+
         PostModel::where('id', $id)->update($data);
 
         return redirect('/admin/post');

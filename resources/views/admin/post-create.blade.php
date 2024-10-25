@@ -35,7 +35,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form method="POST" action="{{ url('/admin/post') }}">
+                <form method="POST" action="{{ url('/admin/post') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul</label>
@@ -46,6 +46,10 @@
                         <label for="subtitle" class="form-label">Sub Judul</label>
                         <input name="subtitle" type="text" class="form-control" id="subtitle"
                             placeholder="Sub Judul Post">
+                    </div>
+                    <div class="mb-3">
+                        <label for="file">Upload File:</label>
+                        <input name="file" type="file" class="form-control" id="file">
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Konten Post</label>
